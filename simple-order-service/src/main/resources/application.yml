@@ -1,0 +1,33 @@
+spring:
+ config:
+  import: configserver:http://localhost:9000
+ datasource:
+  hikari:
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   jdbc-url: jdbc:mysql://localhost:3306/minifin
+   username: user
+   password: qwer1234
+ jpa:
+   open-in-view: false
+   properties:
+    alect: org.hibernate.dialect.MySQL8InnoDBDialect
+    hibernate:
+     show_sql: false
+     format_sql: false
+     use_sql_comments: false
+ application:
+  name: order-service
+ kafka:
+  bootstrap-servers: localhost:9092
+  producer:
+   acks: all
+   key-serializer: org.apache.kafka.common.serialization.StringSerializer
+   value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+ port: 9570
+
+simple-order:
+ api-hosts:
+  item-api: http://item-service:9500
+  member-api: http://member-service:9520

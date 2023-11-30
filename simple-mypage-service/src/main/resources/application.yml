@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: configserver:http://localhost:9000
+  application:
+    name: mypage-service
+server:
+  port: 9550
+
+simple-mypage:
+  api-hosts:
+    order-api: http://order-service:8080
+    member-api: http://member-service:9520

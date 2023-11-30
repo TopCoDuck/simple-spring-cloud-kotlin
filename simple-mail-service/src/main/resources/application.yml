@@ -1,0 +1,17 @@
+spring:
+  config:
+    import: configserver:http://localhost:9000
+  application:
+    name: mail-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: group_id
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      properties:
+        spring.json.trusted.packages: "*"
+server:
+  port: 9530

@@ -1,0 +1,10 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: master
+          uri: https://github.com/TopCoDuck/sample-spring-cloud-config-kotlin
+
